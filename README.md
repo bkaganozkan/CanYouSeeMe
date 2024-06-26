@@ -44,7 +44,12 @@ cd be
 
 #### Setup Enviorement
 ```
-python -m venv new
+python -m venv test-env
+```
+
+#### Active Enviorement
+```
+ test-env\Scripts\active
 ```
 
 #### Install packages
