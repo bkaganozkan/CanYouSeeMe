@@ -45,7 +45,7 @@ const login = async () => {
   const user = username.value;
   const pass = password.value;
   await store.dispatch('auth/login', { username: user, password: pass });
-  router.push('/');
+  router.push('/dashboard');
 };
 
 const goToRegister = () => {

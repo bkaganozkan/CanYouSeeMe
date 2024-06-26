@@ -75,9 +75,6 @@ export const handleError = (error: any) => {
   } else if (error.request) {
     throw new Error("No response received from server");
   } else {
-    // localStorage.removeItem('authToken'); // Clean TOKEN
-    // localStorage.removeItem('authToken'); // Clean TOKEN
-
     throw new Error(error.message || "An unknown error occurred");
   }
 };

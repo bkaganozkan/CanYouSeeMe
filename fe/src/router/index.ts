@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import User from '@/views/UserView.vue'
+import Dashboard from '@/views/DashboardView.vue'
 import Admin from '@/views/AdminView.vue'
 import Login from '@/views/Auth/LoginView.vue'
 import Register from '@/views/Auth/RegisterView.vue'
@@ -19,7 +19,7 @@ const routes: Array<RouteRecordRaw> = [
     meta: { requiresAuth: true, roles: ['user', 'admin'] },
     children: [
       { path: 'admin', name: 'Admin', component: Admin, meta: { requiresAuth: true, roles: ['admin'] } },
-      { path: 'dashboard', name: 'User', component: User, meta: { requiresAuth: true, roles: ['user', 'admin'] } },
+      { path: 'dashboard', name: 'Dashboard', component: Dashboard, meta: { requiresAuth: true, roles: ['user', 'admin'] } },
       {
         path: 'tasks/:id', name: 'TaskDetailsPage', component: TaskDetailsPage,
         props: route => ({ id: Number(route.params.id) }),

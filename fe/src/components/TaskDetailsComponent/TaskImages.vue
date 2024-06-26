@@ -45,8 +45,8 @@ onUnmounted(() => {
 });
 
 const containerStyle = computed(() => {
-  const cardHeight = 300; // Her kartın yüksekliği (piksel cinsinden)
-  const rows = Math.ceil(lastImages.value.length / 3); // Kartların satır sayısı
+  const cardHeight = 300;
+  const rows = Math.ceil(lastImages.value.length / 3); 
   return {
     maxHeight: `${rows * cardHeight}px`
   };

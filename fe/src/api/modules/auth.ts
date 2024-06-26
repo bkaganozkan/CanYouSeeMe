@@ -5,8 +5,6 @@ export interface UserData {
     user_role: string
 }
 
-
-// Register fonksiyonu
 export const register = async (username: string, password: string) => {
     try {
         const response = await apiClient.post('/register', { username, password });
@@ -17,7 +15,6 @@ export const register = async (username: string, password: string) => {
     }
 };
 
-// Login fonksiyonu
 export const login = async (username: string, password: string) => {
     try {
         const response : UserData = await apiClient.post('/login', { username, password });
@@ -28,7 +25,6 @@ export const login = async (username: string, password: string) => {
     }
 };
 
-// Logout fonksiyonu
 export const logout = async () => {
     try {
         const response = await apiClient.post('/logout');

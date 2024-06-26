@@ -37,10 +37,10 @@ const router = useRouter();
 const register = async () => {
   try {
     await store.dispatch('auth/register', { username: username.value, password: password.value });
-    router.push('/user');  // Başarılı kayıt işleminden sonra kullanıcıyı yönlendir
+    router.push('/dashboard'); 
   } catch (error) {
     console.error("Registration failed:", error);
-    // Burada kullanıcıya hata mesajı gösterebilirsiniz
+    
   }
 };
 

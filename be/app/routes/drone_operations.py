@@ -28,10 +28,9 @@ def get_drones():
 def add_drone():
     try:
         data = request.get_json()
-        new_drone = Drone(name=data['name'], model=data['model'], status=data['status'])  # Statüs 'offline' olarak ayarlandı
+        new_drone = Drone(name=data['name'], model=data['model'], status=data['status'])  
         db.session.add(new_drone)
         db.session.commit()        
-        # notify_clients('drones', message)
 
         return jsonify(new_drone.to_dict()), 201
 
@@ -57,7 +56,7 @@ def update_drone():
     if 'model' in data:
         drone.model = data['model']
     if 'status' in data:
-        if data['status'] not in ['offline', 'online', 'on-mission', 'assigned']:  # Input validation
+        if data['status'] not in ['offline', 'online', 'on-mission', 'assigned']:
             return jsonify({'error': 'Invalid status parameter'}), 400
         drone.status = data['status']
 
@@ -70,22 +69,18 @@ def update_drone():
 @role_required('admin')
 def delete_drone(id):
     try:
-        # ID kontrolü
         if not id:
             return jsonify({'error': 'ID Required'}), 400
         
-        # Drone varlığını kontrol etme
         drone = Drone.query.get(id)
         if not drone:
             return jsonify({'error': 'Drone not found'}), 404
         
         drone.delete_with_related()
 
-        # Drone silme işlemi
         db.session.delete(drone)
         db.session.commit()
 
-        # Başarılı silme işlemi mesajı ve silinen drone ID'si
         return jsonify({'message': 'Drone deleted successfully', 'id': id}), 200
 
     except Exception as e:

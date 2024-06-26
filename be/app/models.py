@@ -79,7 +79,6 @@ class Drone(db.Model):
                 time.sleep(1)
 
     def delete_with_related(self):
-        # Silinecek ilişkili tüm görevler ve resimler
         Image.query.filter_by(drone_id=self.id).delete()
         db.session.delete(self)
         db.session.commit()
