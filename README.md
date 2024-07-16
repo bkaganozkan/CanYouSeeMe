@@ -3,7 +3,7 @@
 
 Clone repository
 
-- git clone https://github.com/bkaganozkan/CanYouSeeMe.git
+- git clone https://github.com/bkaganozkan/myLove.git
 
 - Only the administrator can perform edit-delete-add-execute events.
 - user is just a observer
